@@ -1,0 +1,21 @@
+[project@localhost final_project]$ pwd
+/home/project/final_project
+
+[project@localhost final_project]$ python3
+Python 3.9.16 (main, Dec  7 2022, 00:00:00)
+[GCC 8.5.0 20210514 (Red Hat 8.5.0-15)] on linux
+>>> from emotion_detection import emotion_detector
+>>> print(emotion_detector('I am really mad about this'))
+{'anger': 0.973, 'disgust': 0.002, 'fear': 0.001, 'joy': 0.001, 'sadness': 0.023, 'dominant_emotion': 'anger'}
+>>> exit()
+
+[project@localhost final_project]$ python3 test_emotion_detection.py
+
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.252s
+
+OK
+
+[project@localhost final_project]$ pwd
+/home/project/final_project
