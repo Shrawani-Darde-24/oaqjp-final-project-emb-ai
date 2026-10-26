@@ -1,3 +1,64 @@
-[project@localhost final_project]$ python3 -c "from EmotionDetection.emotion_detection import emotion_detector; print(emotion_detector('I am very angry'))"
+@app.route("/emotionDetector")
+def sent_detector():
 
-{'anger': 0.973, 'disgust': 0.002, 'fear': 0.001, 'joy': 0.001, 'sadness': 0.023, 'dominant_emotion': 'anger'}
+    text_to_analyse = request.args.get('textToAnalyze')
+
+    response = emotion_detector(text_to_analyse)
+
+    if response['dominant_emotion'] is None:
+        return "Invalid text! Please try again!"
+
+    elif response['dominant_emotion'] == 'anger':
+        return (
+            f"For the given statement, the system response is "
+            f"'anger': {response['anger']}, "
+            f"'disgust': {response['disgust']}, "
+            f"'fear': {response['fear']}, "
+            f"'joy': {response['joy']}, "
+            f"'sadness': {response['sadness']}. "
+            f"The dominant emotion is anger."
+        )
+
+    elif response['dominant_emotion'] == 'joy':
+        return (
+            f"For the given statement, the system response is "
+            f"'anger': {response['anger']}, "
+            f"'disgust': {response['disgust']}, "
+            f"'fear': {response['fear']}, "
+            f"'joy': {response['joy']}, "
+            f"'sadness': {response['sadness']}. "
+            f"The dominant emotion is joy."
+        )
+
+    elif response['dominant_emotion'] == 'sadness':
+        return (
+            f"For the given statement, the system response is "
+            f"'anger': {response['anger']}, "
+            f"'disgust': {response['disgust']}, "
+            f"'fear': {response['fear']}, "
+            f"'joy': {response['joy']}, "
+            f"'sadness': {response['sadness']}. "
+            f"The dominant emotion is sadness."
+        )
+
+    elif response['dominant_emotion'] == 'fear':
+        return (
+            f"For the given statement, the system response is "
+            f"'anger': {response['anger']}, "
+            f"'disgust': {response['disgust']}, "
+            f"'fear': {response['fear']}, "
+            f"'joy': {response['joy']}, "
+            f"'sadness': {response['sadness']}. "
+            f"The dominant emotion is fear."
+        )
+
+    else:
+        return (
+            f"For the given statement, the system response is "
+            f"'anger': {response['anger']}, "
+            f"'disgust': {response['disgust']}, "
+            f"'fear': {response['fear']}, "
+            f"'joy': {response['joy']}, "
+            f"'sadness': {response['sadness']}. "
+            f"The dominant emotion is disgust."
+        )
